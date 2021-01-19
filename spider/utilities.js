@@ -59,5 +59,6 @@ class TaskQueue {
 module.exports = {
   urlToFilename,
   Logger,
-  TaskQueue
+  TaskQueue,
+  getPageLinks
 }
