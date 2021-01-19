@@ -99,6 +99,7 @@ function spiderLinks(url, body, nesting, callback) {
   iterate(0);
 }
 
+const spidering = new Map();
 /**
  * version3 使用forEach进行异步编程, 控制并行执行
  * @param {*} url
@@ -106,6 +107,9 @@ function spiderLinks(url, body, nesting, callback) {
  * @param {*} callback
  */
 function spider(url, nesting, callback) {
+  if (spidering.has(url)) return process.nextTick(callback);
+  spider.set(url, true);
+
   const filename = urlToFilename(url);
   fs.readFile(filename, 'utf8', (err, body) => {
     if (err) {

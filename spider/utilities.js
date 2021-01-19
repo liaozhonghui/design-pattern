@@ -34,7 +34,30 @@ function getPageLinks(url) {
   return urls;
 }
 
+class TaskQueue {
+  constructor(concurreny) {
+    this.concurreny = concurreny;
+    this.queue = [];
+    this.running = 0;
+  }
+  pushTask(task) {
+    this.queue.push(task)
+  }
+
+  next() {
+    while (this.running < this.concurreny && this.queue.length) {
+      const task = this.queue.shift();
+      task(() => {
+        this.running--;
+        this.next()
+      });
+      this.running++;
+    }
+  }
+}
+
 module.exports = {
   urlToFilename,
-  Logger
+  Logger,
+  TaskQueue
 }
