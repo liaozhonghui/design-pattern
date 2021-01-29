@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/liaozhonghui/design-pattern#readme",
   "dependencies": {
+    "async": "^3.2.0",
     "chalk": "^4.1.0",
     "mkdirp": "^1.0.4",
     "request": "^2.88.2"
