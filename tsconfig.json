@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "commonjs",
+    "lib": [
+      "DOM",
+      "es5",
+      "es6",
+      "es7",
+      "es2018",
+      "es2015.promise",
+      "es2018.promise",
+      "es2015.reflect",
+      "es2018.regexp",
+      "es2019.array",
+      "esnext.array"
+    ],
+    "jsx": "preserve",
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "paths": {
+      "tscode": ["tscode/index"]
+    },
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  },
+  "include": ["@types/**/*.d.ts", "tscode/**.ts"],
+  "exclude": ["node_modules/**/*.*", "dist/**/*.*", "app/**/*.*"]
+}
