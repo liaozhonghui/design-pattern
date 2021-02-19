@@ -18,3 +18,17 @@ const p: pPerson = {
   age: 2
 }
 // Hello(p.name)
+
+type ListNode<T> = {
+  data: T,
+  next: ListNode<T> | null
+}
+
+type DeepPartial<T> = T extends Function
+  ? T
+  : T extends object
+  ? { [P in keyof T]?: DeepPartial<T[P]> }
+  : T;
+
+type PartialPerson = DeepPartial<Person>
+
